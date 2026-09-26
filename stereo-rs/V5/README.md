@@ -6,4 +6,4 @@ Trinet Pro Stereo (rolling shutter). One 3840x1080 side-by-side stream: cam0 = l
 |---|---|---|---|---|---|
 | [`trinet_pro_stereo_V5_batch_calibration.json`](trinet_pro_stereo_V5_batch_calibration.json) | 591.2 / 591.1 | (913, 567) / (938, 574) | 70.05 mm | +3.50 ms | 400.2 |
 
-Image size 1920x1080 per camera. Format, conventions and tools: see the [top-level README](../../README.md). The principal point (cx, cy) and the relative rotation between the eyes vary from unit to unit; for full accuracy use the unit's own calibration.
+Image size 1920x1080 per camera. Format, conventions and tools: see the [top-level README](../../README.md). The principal point (cx, cy) and the relative rotation between the eyes vary from unit to unit. Every stereo unit is calibrated individually at the factory; use the unit's own calibration for full accuracy.

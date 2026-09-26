@@ -6,4 +6,4 @@ Original Trinet, mono, ~180° fisheye. Reports generation code `v2` (legacy); IM
 |---|---|---|---|---|---|
 | [`trinet_V1_batch_calibration.json`](trinet_V1_batch_calibration.json) | ~180° fisheye | 591.5 | (931, 525) | -6.34 ms | 571.6 |
 
-Image size 1920x1080 per camera. Format, conventions and tools: see the [top-level README](../../README.md). The principal point (cx, cy) varies from unit to unit; for full accuracy use the unit's own calibration.
+Image size 1920x1080 per camera. Format, conventions and tools: see the [top-level README](../../README.md). The principal point (cx, cy) varies from unit to unit. Mono units are not individually calibrated by default; a per-unit calibration is available as an add-on calibration service. Without it, use this batch calibration.

@@ -21,15 +21,20 @@ even though both are 70 mm stereo cameras.
 
 ---
 
-## Batch calibration vs. your unit's own calibration
+## Batch calibration vs. a per-unit calibration
 
-Every Trinet unit also carries **its own factory calibration**, measured on
-that unit. The batch calibration is a representative calibration for the
+The batch calibration is a representative calibration for each hardware
 version, not a measurement of your particular unit.
 
-| Use the batch calibration for | Use the unit's own calibration for |
+- **Stereo units (V5, V6)** are calibrated individually at the factory: each
+  stereo unit carries its own calibration.
+- **Mono units (V1-V4)** are not individually calibrated by default. A per-unit
+  calibration is available as an add-on **calibration service**; without it,
+  use the batch calibration for your version.
+
+| Use the batch calibration for | Use a per-unit calibration for |
 |---|---|
-| units without a factory calibration on file | metric stereo depth |
+| mono units without the calibration service | metric stereo depth |
 | quick starts, prototyping, simulation, dataset tooling | visual-inertial odometry / SLAM at full accuracy |
 | initial values for online calibration refinement | anything needing sub-pixel accuracy |
 
@@ -49,18 +54,22 @@ What is shared across units and what varies:
 | V6 | ±4 px | ±30–65 px | 0.7° / 1.6° | ±0.8 mm |
 
 For stereo, a relative rotation of 0.1° shifts the image by about 1 px, so the
-batch calibration is **not** a substitute for the unit's own calibration when
-you compute metric depth; rectify with the unit's calibration, or refine the
-relative rotation online (see [Refining online](#refining-online)).
+batch calibration is **not** a substitute for the stereo unit's own
+calibration when you compute metric depth; rectify with the unit's
+calibration, or refine the relative rotation online (see
+[Refining online](#refining-online)).
 
-### Getting your unit's own calibration
+### Getting a per-unit calibration
 
-- **Trinet SDK:** read it from a connected device (`getCalibration`), or from
-  any recording: SDK recordings embed the unit's stored calibration in the MP4
-  (`moov/udta`), so a clip is usable for undistortion even when separated from
-  its folder.
+- **Stereo units, and mono units calibrated through the calibration service:**
+  the calibration is stored on the device. Read it with the Trinet SDK from a
+  connected device (`getCalibration`), or from any SDK recording: recordings
+  embed the unit's stored calibration in the MP4 (`moov/udta`), so a clip is
+  usable for undistortion even when separated from its folder.
 - **Per-unit files:** where we hold your units' calibrations as files, they
   use the same JSON format as this repository, keyed by device ID.
+- **Mono units without the calibration service:** use the batch calibration
+  for your version.
 
 ---
 
@@ -210,7 +219,7 @@ The quantities that vary per unit are cheap to refine at run time:
   distant features, or from a VIO with online camera-IMU extrinsic refinement
   (e.g. OpenVINS, Basalt). Keep intrinsics and baseline fixed.
 - **Principal point:** refine together with the camera-IMU extrinsics in your
-  VIO, or use the unit's own calibration.
+  VIO, or use a per-unit calibration.
 
 ---
 

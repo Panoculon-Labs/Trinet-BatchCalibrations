@@ -6,4 +6,4 @@ Trinet Pro Stereo GS (global shutter). Same 3840x1080 side-by-side stream as V5:
 |---|---|---|---|---|---|
 | [`trinet_pro_stereo_gs_V6_batch_calibration.json`](trinet_pro_stereo_gs_V6_batch_calibration.json) | 624.5 / 622.5 | (957, 526) / (986, 552) | 70.38 mm | +3.10 ms | 398.8 |
 
-Image size 1920x1080 per camera. Format, conventions and tools: see the [top-level README](../../README.md). The principal point (cx, cy) and the relative rotation between the eyes vary from unit to unit; for full accuracy use the unit's own calibration.
+Image size 1920x1080 per camera. Format, conventions and tools: see the [top-level README](../../README.md). The principal point (cx, cy) and the relative rotation between the eyes vary from unit to unit. Every stereo unit is calibrated individually at the factory; use the unit's own calibration for full accuracy.
