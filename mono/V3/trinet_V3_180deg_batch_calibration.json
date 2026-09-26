@@ -1,0 +1,66 @@
+{
+  "format": "trinet-mono-calibration/1",
+  "hardware": "Trinet",
+  "hardware_version": "V3",
+  "calibration_type": "batch",
+  "lens": "~180\u00b0 fisheye",
+  "shutter": "rolling",
+  "calibration_date": "2026-09-26",
+  "conventions": {
+    "intrinsics_model": "equidistant (Kannala-Brandt fisheye), distortion = [k1, k2, k3, k4]",
+    "T_cam_imu": "4x4, maps a point from the IMU frame into the camera frame",
+    "timeshift": "t_imu = t_cam + timeshift_cam_imu_s",
+    "imu_noise": "continuous-time noise densities / random walks (Kalibr / OpenVINS convention)",
+    "units": "pixels for intrinsics, metres for translations, seconds for timeshift"
+  },
+  "intrinsics": {
+    "image_size": [
+      1920,
+      1080
+    ],
+    "model": "equidistant",
+    "fx": 589.4069358950987,
+    "fy": 594.7584132407621,
+    "cx": 966.3833296718269,
+    "cy": 540.2153842681961,
+    "distortion": [
+      0.15017221431133437,
+      0.05797906793742298,
+      -0.07944299757697154,
+      0.017841230092630722
+    ]
+  },
+  "T_cam_imu": [
+    [
+      -0.9999854380985009,
+      -0.004981927420932667,
+      0.0020746060159197916,
+      -0.0006
+    ],
+    [
+      0.004998075976006322,
+      -0.999956674877744,
+      0.007852872339705401,
+      0.00791
+    ],
+    [
+      0.0020353936933183237,
+      0.007863127025439648,
+      0.9999670136588981,
+      -0.01107
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "timeshift_cam_imu_s": -0.015822,
+  "imu": {
+    "gyro_noise_density": 0.0002617993877991494,
+    "gyro_random_walk": 1e-05,
+    "accel_noise_density": 0.0022555295,
+    "accel_random_walk": 5e-05
+  }
+}

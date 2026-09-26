@@ -1,0 +1,124 @@
+{
+  "format": "trinet-stereo-calibration/1",
+  "hardware": "Trinet Pro Stereo",
+  "hardware_version": "V5",
+  "calibration_type": "batch",
+  "lens": "fisheye",
+  "shutter": "rolling",
+  "calibration_date": "2026-09-26",
+  "conventions": {
+    "cameras": "cam0 = scene-LEFT eye (left half of the side-by-side frame), cam1 = scene-RIGHT eye",
+    "intrinsics_model": "equidistant (Kannala-Brandt fisheye), distortion = [k1, k2, k3, k4]",
+    "T_cam1_cam0": "4x4, maps a point from the cam0 frame into the cam1 frame",
+    "T_cam0_imu": "4x4, maps a point from the IMU frame into the cam0 frame",
+    "timeshift": "t_imu = t_cam + timeshift_cam_imu_s",
+    "imu_noise": "continuous-time noise densities / random walks (Kalibr / OpenVINS convention)",
+    "units": "pixels for intrinsics, metres for translations, seconds for timeshift"
+  },
+  "cameras": [
+    {
+      "intrinsics": {
+        "image_size": [
+          1920,
+          1080
+        ],
+        "model": "equidistant",
+        "fx": 591.1590105353779,
+        "fy": 593.0522345667152,
+        "cx": 912.7445697067993,
+        "cy": 566.6084410919526,
+        "distortion": [
+          0.15175339676001276,
+          0.039012079104318635,
+          -0.059524171418496176,
+          0.01199774101846554
+        ]
+      },
+      "timeshift_cam_imu_s": 0.0035
+    },
+    {
+      "intrinsics": {
+        "image_size": [
+          1920,
+          1080
+        ],
+        "model": "equidistant",
+        "fx": 591.0661738008454,
+        "fy": 592.8550769987028,
+        "cx": 938.2387598320381,
+        "cy": 573.5018451456639,
+        "distortion": [
+          0.15004946389787727,
+          0.04376834677294026,
+          -0.06581967854159806,
+          0.014175736165708502
+        ]
+      },
+      "timeshift_cam_imu_s": 0.0035
+    }
+  ],
+  "T_cam1_cam0": [
+    [
+      0.9999886300577956,
+      -3.7170054807472523e-05,
+      -0.004768477065142765,
+      -0.07005266129889734
+    ],
+    [
+      9.023434830030657e-06,
+      0.9999825798821422,
+      -0.005902529189437209,
+      -0.00015729117122247692
+    ],
+    [
+      0.004768613395043782,
+      0.005902419049979431,
+      0.9999712104734049,
+      -0.00021388404636068242
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "T_cam0_imu": [
+    [
+      0.0006525907262318985,
+      -0.9999991047739787,
+      0.0011681509261215995,
+      0.037628999999999996
+    ],
+    [
+      0.9999977733363352,
+      0.0006549332717536236,
+      0.002006086932665305,
+      -0.011797
+    ],
+    [
+      -0.002006850197671832,
+      0.0011668391713142616,
+      0.999997305515686,
+      -0.0077
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "imu": {
+    "rate_hz": 400.2,
+    "gyro_noise_density": 0.0002617993877991494,
+    "gyro_random_walk": 1e-05,
+    "accel_noise_density": 0.0022555295,
+    "accel_random_walk": 5e-05
+  },
+  "rolling_shutter": {
+    "readout_time_s": 0.0318,
+    "line_delay_s": 2.94e-05,
+    "timestamp_reference": "centre image row, mid-exposure"
+  }
+}
